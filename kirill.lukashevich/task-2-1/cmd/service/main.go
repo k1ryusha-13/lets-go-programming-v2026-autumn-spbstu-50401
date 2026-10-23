@@ -2,6 +2,10 @@ package main
 
 import "fmt"
 
+const (
+	minTemperature = 15
+	maxTemperature = 30
+)
 
 func main() {
 	var departmentCount int
