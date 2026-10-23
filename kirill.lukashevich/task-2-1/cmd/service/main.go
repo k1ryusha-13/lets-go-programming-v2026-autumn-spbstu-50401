@@ -10,20 +10,29 @@ const (
 func main() {
 	var departmentCount int
 
-	fmt.Scan(&departmentCount)
+	if _, err := fmt.Scan(&departmentCount); err != nil {
+		return
+	}
 
-	for department := 0; department < departmentCount; department++ {
+	for range departmentCount {
 		var employeeCount int
-		fmt.Scan(&employeeCount)
+
+		if _, err := fmt.Scan(&employeeCount); err != nil {
+			return
+		}
 
 		lowerBound := minTemperature
 		upperBound := maxTemperature
 
-		for employee := 0; employee < employeeCount; employee++ {
-			var operation string
-			var temperature int
+		for range employeeCount {
+			var (
+				operation   string
+				temperature int
+			)
 
-			fmt.Scan(&operation, &temperature)
+			if _, err := fmt.Scan(&operation, &temperature); err != nil {
+				return
+			}
 
 			switch operation {
 			case ">=":
